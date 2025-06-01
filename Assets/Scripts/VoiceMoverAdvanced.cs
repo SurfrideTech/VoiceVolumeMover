@@ -27,7 +27,7 @@ public class VoiceMoverAdvanced : MonoBehaviour {
         if (volumeSlider != null)
             volumeSlider.value = vol;
 
-        if (vol > jumpThreshold && Mathf.Abs(rb.velocity.y) < 0.1f) {
+        if (vol > jumpThreshold && Mathf.Abs(rb.linearVelocity.y) < 0.1f) {
             rb.AddForce(Vector3.up * jumpForce);
             if (statusText != null) statusText.text = "ジャンプ！";
         } else if (vol > runThreshold) {
@@ -35,9 +35,9 @@ public class VoiceMoverAdvanced : MonoBehaviour {
             if (statusText != null) statusText.text = "走行中";
         } else if (vol > walkThreshold) {
             rb.AddForce(transform.forward * walkSpeed);
-            if (statusText != null) statusText.text = "歩行中";
+            if (statusText != null) statusText.text = "声でUnityちゃんを吹き飛ばせ！！";
         } else {
-            if (statusText != null) statusText.text = "待機中";
+            if (statusText != null) statusText.text = "声でUnityちゃんを吹き飛ばせ！！";
         }
     }
 }
